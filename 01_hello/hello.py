@@ -5,6 +5,7 @@ import argparse
 
 
 def get_args():
+    """Get the command-line arguments"""
     parser = argparse.ArgumentParser(description='Say hello')
     parser.add_argument('-n', '--name', metavar='name',
                         default='World', help='Name to greet')
@@ -12,6 +13,7 @@ def get_args():
 
 
 def main():
+    """This is the main function"""
     args = get_args()
     print('Hello, ' + args.name + '!')
 
