@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+"""Crow's Nest"""
+
 import argparse
 
 
@@ -18,7 +20,8 @@ def get_args():
 def main():
     args = get_args()
     word = args.word
-    print(word)
+    article = 'an' if word[0].lower() in 'aeiou' else 'a'
+    print(f'Ahoy, Captain, {article} {word} off the larboard bow!')
 
 
 if __name__ == "__main__":
