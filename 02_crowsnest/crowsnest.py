@@ -3,6 +3,14 @@
 
 import argparse
 
+def check_for_non_alpha_character(word):
+    """Check if the word starts with alphabetic character"""
+    
+    if not word[0].isalpha():
+        raise ValueError
+    
+    return word
+
 
 def get_args():
     """Get command-line arguments"""
@@ -12,7 +20,7 @@ def get_args():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
 
-    parser.add_argument('word', metavar='word', help='A word')
+    parser.add_argument('word', metavar='word', type=check_for_non_alpha_character, help='A word')
     parser.add_argument('--side', metavar='side', choices=['larboard', 'starboard'],
                         default='larboard', help='A side of the ship')
 
