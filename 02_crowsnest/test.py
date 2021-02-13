@@ -66,3 +66,17 @@ def test_vowel_upper():
     for word in vowel_words:
         out = getoutput(f'{prg} {word.upper()}')
         assert out.strip() == template.format('an', word.upper())
+
+
+def test_article_capitalization_with_vowel():
+    """Octopus -> An Octopus"""
+    for word in vowel_words:
+        out = getoutput(f'{prg} {word.title()}')
+        assert out.strip() == template.format('An', word.title())
+
+
+def test_article_capitalization_with_consonant():
+    """Brigantine -> A Brigantine"""
+    for word in vowel_words:
+        out = getoutput(f'{prg} {word.title()}')
+        assert out.strip() == template.format('A', word.title())
