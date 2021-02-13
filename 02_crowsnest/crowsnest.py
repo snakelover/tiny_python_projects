@@ -13,7 +13,8 @@ def get_args():
     )
 
     parser.add_argument('word', metavar='word', help='A word')
-    parser.add_argument('--side', metavar='side', default='larboard', help='A side of the ship')
+    parser.add_argument('--side', metavar='side', choices=['larboard', 'starboard'],
+                        default='larboard', help='A side of the ship')
 
     return parser.parse_args()
 
