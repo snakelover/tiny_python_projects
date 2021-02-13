@@ -95,7 +95,7 @@ def test_non_alpha_char():
     
     word = '2rigantine'
     out = getoutput(f'{prg} {word}')
-    assert out.strip().startswith("The word starts with non-alphabetic character!")
+    assert 'invalid check_for_non_alpha_character' in out.strip()
 
 
 # def test_article_capitalization_with_vowel():
