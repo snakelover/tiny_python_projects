@@ -21,6 +21,8 @@ def main():
     args = get_args()
     word = args.word
     article = 'an' if word[0].lower() in 'aeiou' else 'a'
+    if word[0].isupper():
+        article = article[0].upper() + article[1:]
     print(f'Ahoy, Captain, {article} {word} off the larboard bow!')
 
 
