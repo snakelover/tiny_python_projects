@@ -90,6 +90,13 @@ def test_right_side_option():
     out = getoutput(f'{prg} --side starboard {word}')
     assert out.strip() == template.format('a', word, 'starboard')
 
+def test_non_alpha_char():
+    """crowsnest.py word_starts_with_non_alpha_char"""
+    
+    word = '2rigantine'
+    out = getoutput(f'{prg} {word}')
+    assert out.strip().startswith("The word starts with non-alphabetic character!")
+
 
 # def test_article_capitalization_with_vowel():
 #     """Octopus -> An Octopus"""
