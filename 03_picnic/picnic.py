@@ -19,6 +19,10 @@ def get_args():
                         action="store_true",
                         help='Sort the items')
 
+    parser.add_argument('-n', '--no_comma',
+                        action="store_true",
+                        help='Do not print Oxford comma')
+
     parser.add_argument('-d', '--delimiter',
                         metavar='delimiter',
                         type=str,
@@ -43,8 +47,10 @@ def main():
         picnic_list = ' and '.join(items)
     else:
         items[-1] = 'and ' + items[-1]
-        picnic_list = delimiter.join(items)
-
+        if args.no_comma and args.delimiter == ',':
+            picnic_list = delimiter.join(items[:-1]) + ' ' + items[-1]
+        else:    
+            picnic_list = delimiter.join(items)
     print(f'You are bringing {picnic_list}.')
 
 
