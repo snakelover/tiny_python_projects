@@ -5,7 +5,7 @@ import os
 from subprocess import getoutput
 
 prg = './picnic.py'
-
+delimiters = [':', '=']
 
 # --------------------------------------------------
 def test_exists():
@@ -48,6 +48,17 @@ def test_more_than_two():
     expected = ('You are bringing potato chips, coleslaw, '
                 'cupcakes, and French silk pie.')
     assert out.strip() == expected
+
+
+def test_more_than_two_with_alt_delimeter():
+    """more than two items delimited by specified symbol"""
+
+    arg = '"potato chips" coleslaw cupcakes'
+    for delimiter in delimiters:
+        out = getoutput(f'{prg} {arg} -d {delimiter}')
+        expected = (f'You are bringing potato chips{delimiter} '
+                    f'coleslaw{delimiter} and cupcakes.')
+        assert out.strip() == expected
 
 
 # --------------------------------------------------
