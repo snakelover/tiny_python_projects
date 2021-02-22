@@ -19,12 +19,19 @@ def get_args():
                         action="store_true",
                         help='Sort the items')
 
+    parser.add_argument('-d', '--delimiter',
+                        metavar='delimiter',
+                        type=str,
+                        help='Symbol used as a delimiter',
+                        default=',')
+
     return parser.parse_args()
 
 
 def main():
     args = get_args()
     items = args.items
+    delimiter = args.delimiter + ' '
     
     if args.sorted:
         items.sort()
@@ -36,7 +43,7 @@ def main():
         picnic_list = ' and '.join(items)
     else:
         items[-1] = 'and ' + items[-1]
-        picnic_list = ', '.join(items)
+        picnic_list = delimiter.join(items)
 
     print(f'You are bringing {picnic_list}.')
 
