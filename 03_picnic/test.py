@@ -50,6 +50,16 @@ def test_more_than_two():
     assert out.strip() == expected
 
 
+def test_more_than_two_without_comma():
+    """more than two items without Oxford comma"""
+
+    arg = '"potato chips" coleslaw cupcakes'
+    out = getoutput(f'{prg} {arg} -n')
+    expected = ('You are bringing potato chips, '
+                'coleslaw and cupcakes.')
+    assert out.strip() == expected
+
+
 def test_more_than_two_with_alt_delimeter():
     """more than two items delimited by specified symbol"""
 
